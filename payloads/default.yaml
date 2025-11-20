@@ -1,0 +1,16 @@
+xss:
+  - "<script>alert(1)</script>"
+  - "<img src=x onerror=alert(1)>"
+
+sqli:
+  - "'"
+  - "' OR 1=1 --"
+  - "admin' --"
+
+ssti:
+  - "{{7*7}}"
+  - "${7*7}"
+
+rce_safe:
+  - "; echo RWF_TEST"
+  - "| echo RWF_TEST"

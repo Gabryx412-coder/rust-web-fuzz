@@ -1,0 +1,9 @@
+network:
+  timeout_seconds: 10
+  user_agent: "rwf-scanner/1.0"
+  follow_redirects: true
+
+concurrency: 10
+plugin_path: "./plugins"
+payload_path: "./payloads/default.yaml"
+reports_path: "./reports"

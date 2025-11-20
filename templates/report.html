@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RWF Security Report</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; background: #f4f4f4; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #333; border-bottom: 2px solid #e74c3c; padding-bottom: 10px; }
+        .vuln { border: 1px solid #ddd; margin-bottom: 15px; padding: 10px; border-radius: 5px; }
+        .severity-Critical { border-left: 5px solid #e74c3c; }
+        .severity-High { border-left: 5px solid #e67e22; }
+        .severity-Medium { border-left: 5px solid #f1c40f; }
+        .severity-Low { border-left: 5px solid #3498db; }
+        .meta { font-size: 0.9em; color: #666; }
+        pre { background: #eee; padding: 10px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rust Web Fuzz Report</h1>
+        <p>Generated on: {{ date }}</p>
+        
+        <h2>Findings</h2>
+        {% for v in vulns %}
+        <div class="vuln severity-{{ v.severity }}">
+            <h3>{{ v.name }} <span style="font-size:0.6em; color: #555;">[{{ v.severity }}]</span></h3>
+            <p>{{ v.description }}</p>
+            <div class="meta">Evidence:</div>
+            <pre>{{ v.evidence }}</pre>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
